@@ -39,8 +39,8 @@ The program is designed to be extensible, allowing for the easy addition of new 
 1.  Clone the repository:
 
     ```bash
-    git clone <repository-url>
-    cd <repository-directory>
+    git clone https://github.com/qhe28/weighted_connective_constant.git
+    cd weighted_connective_constant
     ```
 
 2.  Install the required Python packages. A `virtualenv` is recommended.
