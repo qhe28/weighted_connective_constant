@@ -1,6 +1,6 @@
 # Weighted Self-Avoiding Walk and Trail Analyzer
 
-This project provides a Python-based framework for analyzing weighted Self-Avoiding Walks (SAWs) and Self-Avoiding Trails (SATs) on various lattices. It uses the numerical method developed in the accompanying paper **[arXiv:2508.01993](https://arxiv.org/abs/2508.01993)** to derive rigorous upper bounds on the corresponding weighted connective constants.
+This project provides a Python-based framework for analyzing weighted Self-Avoiding Walks (SAWs) and Self-Avoiding Trails (SATs) on various lattices. It uses the numerical method developed in the paper **[arXiv:2508.01993](https://arxiv.org/abs/2508.01993)** to derive rigorous upper bounds on the corresponding weighted connective constants.
 
 The program is designed to be extensible, allowing for the easy addition of new lattices and weighting schemes.
 
