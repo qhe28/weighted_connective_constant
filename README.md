@@ -112,12 +112,10 @@ python main.py --lattice square --mode trail --pairs 2,4 --action latex
 If you use this code in your research, please cite the following paper:
 
 ```bibtex
-@online{he2025upperboundsconnectiveconstant,
-      title={Upper bounds for the connective constant of weighted self-avoiding walks}, 
-      author={Qidong He},
-      year={2025},
-      eprint={2508.01993},
-      archivePrefix={arXiv},
-      primaryClass={math.PR}
+@article{he2025upper,
+  title={Upper bounds for the connective constant of weighted self-avoiding walks},
+  author={He, Qidong},
+  journal={arXiv preprint arXiv:2508.01993},
+  year={2025}
 }
 ```
