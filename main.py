@@ -229,16 +229,16 @@ def create_2d_plot_figure(results_list, plot_symbols, inset_config=None):
     if inset_config:
         ax_inset.set_xlim(inset_config['xlim'])
         ax_inset.set_ylim(inset_config['ylim'])
-        ax_inset.set_xticks(inset_config['ticks'])
-        ax_inset.set_yticks(inset_config['ticks'])
     ax_inset.tick_params(axis='both', which='major', labelsize=8)
     ax_inset.grid(True)
 
-    ax.plot([0, 1], [0, 1], color='gray', linestyle='--', linewidth=1)
-    ax_inset.plot([0, 1], [0, 1], color='gray', linestyle='--', linewidth=1)
-
     handles = [plt.Line2D([0], [0], color=colors[i], label=fr'$(m={r[1]}, n={r[2]})$') for i, r in enumerate(results_list)]
-    handles.append(plt.Line2D([0], [0], color='gray', linestyle='--', label=r'Isotropic ($y=x$)'))
+    
+    # Uncomment the following lines to add isotropic line
+    # ax.plot([0, 1], [0, 1], color='gray', linestyle='--', linewidth=1)
+    # ax_inset.plot([0, 1], [0, 1], color='gray', linestyle='--', linewidth=1)
+    # handles.append(plt.Line2D([0], [0], color='gray', linestyle='--', label=r'Isotropic ($y=x$)'))
+    
     ax.legend(handles=handles, loc='upper left')
     ax.grid(True)
     ax.set_aspect('equal', adjustable='box')
@@ -394,6 +394,7 @@ if __name__ == '__main__':
 
                 if num_plot_vars == 2:
                     fig = create_2d_plot_figure(results_for_analysis, first_result_symbols, plot_config.get_config(args.lattice, args.mode))
+                    fig.canvas.manager.set_window_title(f"{args.lattice}_{args.mode}")
                     if is_saving_file:
                         output_filename = f"{args.lattice}_{args.mode}.pgf"
                         print(f"Saving plot to {output_filename}...")
@@ -404,6 +405,8 @@ if __name__ == '__main__':
 
                 elif num_plot_vars == 3:
                     fig_full, fig_local = create_3d_plot_figures(results_for_analysis, first_result_symbols, plot_config.get_config(args.lattice, args.mode))
+                    fig_full.canvas.manager.set_window_title(f"{args.lattice}_{args.mode}_full")
+                    fig_local.canvas.manager.set_window_title(f"{args.lattice}_{args.mode}_local")
                     if is_saving_file:
                         output_full = f"{args.lattice}_{args.mode}_full.pgf"
                         output_local = f"{args.lattice}_{args.mode}_local.pgf"
