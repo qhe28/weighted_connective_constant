@@ -1,18 +1,21 @@
 import sympy
-from typing import Tuple
-from .base import Lattice  # Relative import from the 'base.py' file in the same package.
+from typing import Tuple, List
+from .base import Lattice
 
-# A unique name for this lattice, used for discovery.
 LATTICE_NAME = 'square'
 
 def get_lattice() -> Lattice:
-    """Returns a configured square Lattice object."""
     lattice = Lattice(
         name=LATTICE_NAME,
         dim=2,
-        neighbors=[(0, 1), (0, -1), (1, 0), (-1, 0)],
-        symbols=[sympy.Symbol('x'), sympy.Symbol('y')]
+        symbols=[sympy.Symbol('x'), sympy.Symbol('y')],
+        vertex_reps=[(0, 0)]
     )
+
+    _NEIGHBORS = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+
+    def get_neighbor_vectors(node: Tuple[int, ...]) -> List[Tuple[int, ...]]:
+        return _NEIGHBORS
 
     def get_canonical_form(walk: Tuple[Tuple[int, ...], ...]) -> Tuple[Tuple[int, ...], ...]:
         if walk in lattice._memo_canonical: return lattice._memo_canonical[walk]
@@ -27,10 +30,11 @@ def get_lattice() -> Lattice:
         canonical = min(symmetries)
         lattice._memo_canonical[walk] = canonical
         return canonical
-
+    
     def get_step_weight(p1: Tuple[int, ...], p2: Tuple[int, ...]) -> sympy.Symbol:
         return lattice.symbols[0] if p1[1] == p2[1] else lattice.symbols[1]
 
+    lattice.get_neighbor_vectors = get_neighbor_vectors
     lattice.get_canonical_form = get_canonical_form
     lattice.get_step_weight = get_step_weight
     return lattice
