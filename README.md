@@ -1,4 +1,4 @@
-# Weighted Self-Avoiding Walk and Trail Analyzer
+# Weighted Connective Constant Analyzer
 
 This project provides a Python-based framework for computing rigorous upper bounds on the connective constants of weighted self-avoiding walks (SAWs) and self-avoiding trails (SATs) on various lattices, using the method developed in the paper **[arXiv:2508.01993](https://arxiv.org/abs/2508.01993)**.
 
