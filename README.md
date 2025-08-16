@@ -75,7 +75,7 @@ python main.py --lattice <name> --mode <type> --pairs <m1,n1> [<m2,n2> ...] --ac
 
 **1. Generate a 2D Contour Plot for SAWs on the Square Lattice**
 
-This command computes the G-matrices for (m=2, n=4) and (m=3, n=5) and plots the `lambda_1 = 1` contours.
+This command computes the G-matrices for (m=2, n=4) and (m=3, n=5) on the square lattice and plots the `lambda_1 = 1` contours.
 
 ```bash
 python main.py --lattice square --mode walk --pairs 2,4 3,5 --action plot
@@ -83,7 +83,7 @@ python main.py --lattice square --mode walk --pairs 2,4 3,5 --action plot
 
 **2. Save 3D Surface Plots for SATs on the Simple-Cubic Lattice**
 
-This command analyzes self-avoiding trails for the pair (m=2, n=3) on the simple-cubic lattice. It will produce two files: `simple-cubic_trail_full.pgf` (the full surface) and `simple-cubic_trail_local.pgf` (a zoomed-in view near the isotropic line).
+This command analyzes self-avoiding trails for (m=2, n=3) on the simple-cubic lattice. It will produce two files: `simple-cubic_trail_full.pgf` (the full surface) and `simple-cubic_trail_local.pgf` (a zoomed-in view near the isotropic line).
 
 ```bash
 python main.py --lattice simple-cubic --mode trail --pairs 2,3 --action pgf
@@ -99,10 +99,10 @@ python main.py --lattice triangular --mode walk --pairs 2,3 --action matrix
 
 **4. Print the LaTeX Code for a Symbolic G-Matrix**
 
-This command prints the G-matrix in a format ready for a TeX document:
+This command prints the G-matrix for (m=2, n=4) on the hexagonal lattice in a format ready for a TeX document:
 
 ```bash
-python main.py --lattice square --mode trail --pairs 2,4 --action latex
+python main.py --lattice hexagonal --mode trail --pairs 2,4 --action latex
 ```
 
 ---
