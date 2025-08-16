@@ -26,10 +26,8 @@ The program is designed to be extensible, allowing for the easy addition of new 
 │   ├── base.py                  # Defines the abstract Lattice class interface.
 │   ├── hexagonal.py             # Implementation for the 2D hexagonal lattice.
 │   ├── simple-cubic.py          # Implementation for the 3D simple-cubic lattice.
-│   ├── simple-cubic_reduced.py  # Implementation for the 3D simple-cubic lattice with a special weighting scheme.
 │   ├── square.py                # Implementation for the 2D square lattice.
-│   ├── triangular.py            # Implementation for the 2D triangular lattice.
-│   └── triangular_reduced.py    # Implementation for the 2D triangular lattice with a special weighting scheme.
+│   └── triangular.py            # Implementation for the 2D triangular lattice.
 └── cache/                       # (Auto-generated) Stores cached G-matrices.
 ```
 
