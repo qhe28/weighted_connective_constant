@@ -24,11 +24,12 @@ The program is designed to be extensible, allowing for the easy addition of new 
 ├── lattices/
 │   ├── __init__.py              # Package initializer with dynamic lattice discovery.
 │   ├── base.py                  # Defines the abstract Lattice class interface.
+│   ├── hexagonal.py             # Implementation for the 2D hexagonal lattice.
+│   ├── simple-cubic.py          # Implementation for the 3D simple-cubic lattice.
+│   ├── simple-cubic_reduced.py  # Implementation for the 3D simple-cubic lattice with a special weighting scheme.
 │   ├── square.py                # Implementation for the 2D square lattice.
 │   ├── triangular.py            # Implementation for the 2D triangular lattice.
-│   ├── triangular_reduced.py    # Implementation for the 2D triangular lattice with a reduced weighting scheme.
-│   ├── simple-cubic.py          # Implementation for the 3D simple-cubic lattice.
-│   └── simple-cubic_reduced.py  # Implementation for the 3D simple-cubic lattice with a reduced weighting scheme.
+│   └── triangular_reduced.py    # Implementation for the 2D triangular lattice with a special weighting scheme.
 └── cache/                       # (Auto-generated) Stores cached G-matrices.
 ```
 
@@ -67,7 +68,8 @@ python main.py --lattice <name> --mode <type> --pairs <m1,n1> [<m2,n2> ...] --ac
   - `--mode`: The type of self-avoiding object (`walk` or `trail`).
   - `--pairs`: One or more space-separated `m,n` pairs. **Note: `m` must be less than `n`**.
   - `--action`: The desired output:
-      - `plot`: Generate and save a `.pgf` plot file.
+      - `pgf`: Generate and save a plot to a `.pgf` file for use in LaTeX documents.
+      - `plot`: Display the plot in a window (does not save to a file).
       - `matrix`: Print the computed G-matrix to the console in a human-readable format.
       - `latex`: Print the G-matrix in LaTeX format.
 
@@ -78,7 +80,7 @@ python main.py --lattice <name> --mode <type> --pairs <m1,n1> [<m2,n2> ...] --ac
 This command computes the G-matrices for (m=2, n=4) and (m=3, n=5) and plots the `lambda_1 = 1` contours. The output will be saved as `square_walk.pgf`.
 
 ```bash
-python main.py --lattice square --mode walk --pairs 2,4 3,5 --action plot
+python main.py --lattice square --mode walk --pairs 2,4 3,5 --action pgf
 ```
 
 **2. Generate 3D Surface Plots for SATs on the Simple-Cubic Lattice**
@@ -86,7 +88,7 @@ python main.py --lattice square --mode walk --pairs 2,4 3,5 --action plot
 This command analyzes self-avoiding trails for the pair (m=2, n=3) on the simple-cubic lattice. It will produce two files: `simple-cubic_trail_full.pgf` (the full surface) and `simple-cubic_trail_local.pgf` (a zoomed-in view near the isotropic line).
 
 ```bash
-python main.py --lattice simple-cubic --mode trail --pairs 2,3 --action plot
+python main.py --lattice simple-cubic --mode trail --pairs 2,3 --action pgf
 ```
 
 **3. Print the Symbolic G-Matrix**
