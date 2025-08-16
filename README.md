@@ -1,6 +1,6 @@
 # Weighted Self-Avoiding Walk and Trail Analyzer
 
-This project provides a Python-based framework for analyzing weighted Self-Avoiding Walks (SAWs) and Self-Avoiding Trails (SATs) on various lattices. It uses the numerical method developed in the paper **[arXiv:2508.01993](https://arxiv.org/abs/2508.01993)** to derive rigorous upper bounds on the corresponding weighted connective constants.
+This project provides a Python-based framework for computing rigorous upper bounds on the connective constants of weighted self-avoiding walks (SAWs) and self-avoiding trails (SATs) on various lattices, using the method developed in the paper **[arXiv:2508.01993](https://arxiv.org/abs/2508.01993)**.
 
 The program is designed to be extensible, allowing for the easy addition of new lattices and weighting schemes.
 
@@ -62,7 +62,7 @@ The main script is `main.py`. You can run it from the command line to perform di
 python main.py --lattice <name> --mode <type> --pairs <m1,n1> [<m2,n2> ...] --action <action>
 ```
 
-  - `--lattice`: The name of the lattice to use (e.g., `square`, `simple-cubic`, `triangular`).
+  - `--lattice`: The name of the lattice to use (e.g., `hexagonal`, `square`, `simple-cubic`, `triangular`).
   - `--mode`: The type of self-avoiding object (`walk` or `trail`).
   - `--pairs`: One or more space-separated `m,n` pairs. **Note: `m` must be less than `n`**.
   - `--action`: The desired output:
@@ -75,13 +75,13 @@ python main.py --lattice <name> --mode <type> --pairs <m1,n1> [<m2,n2> ...] --ac
 
 **1. Generate a 2D Contour Plot for SAWs on the Square Lattice**
 
-This command computes the G-matrices for (m=2, n=4) and (m=3, n=5) and plots the `lambda_1 = 1` contours. The output will be saved as `square_walk.pgf`.
+This command computes the G-matrices for (m=2, n=4) and (m=3, n=5) and plots the `lambda_1 = 1` contours.
 
 ```bash
-python main.py --lattice square --mode walk --pairs 2,4 3,5 --action pgf
+python main.py --lattice square --mode walk --pairs 2,4 3,5 --action plot
 ```
 
-**2. Generate 3D Surface Plots for SATs on the Simple-Cubic Lattice**
+**2. Save 3D Surface Plots for SATs on the Simple-Cubic Lattice**
 
 This command analyzes self-avoiding trails for the pair (m=2, n=3) on the simple-cubic lattice. It will produce two files: `simple-cubic_trail_full.pgf` (the full surface) and `simple-cubic_trail_local.pgf` (a zoomed-in view near the isotropic line).
 
@@ -97,7 +97,7 @@ This command computes the G-matrix for (m=2, n=3) on the triangular lattice and 
 python main.py --lattice triangular --mode walk --pairs 2,3 --action matrix
 ```
 
-**4. Get the LaTeX Code for a G-Matrix**
+**4. Print the LaTeX Code for a Symbolic G-Matrix**
 
 This command prints the G-matrix in a format ready for a TeX document:
 
